@@ -1,7 +1,6 @@
 package env
 
 import (
-	"errors"
 	"os"
 )
 
@@ -13,10 +12,6 @@ func GetEnvValueOrDefault(variable, def string) string {
 	return str
 }
 
-func GetEnvValue(variable string) (string, error) {
-	str := os.Getenv(variable)
-	if str == "" {
-		return "", errors.New("error getting ENV value")
-	}
-	return str, nil
+func GetEnvValue(variable string) string {
+	return os.Getenv(variable)
 }
